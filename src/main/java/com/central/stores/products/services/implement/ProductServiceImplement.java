@@ -1,5 +1,7 @@
 package com.central.stores.products.services.implement;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,14 @@ public class ProductServiceImplement implements ProductService {
 		product = ProductMapper.toModel(requestProductDTO);
 		repository.save(product);
 		return new ResponseEntity<Object>(HttpStatus.CREATED);
+	}
+
+	@Override
+	public ResponseEntity<Object> update(RequestProductDTO requestProductDTO, UUID customerId) {
+		product = repository.findById(customerId).get();
+		product = ProductMapper.updateProduct(product, requestProductDTO);
+		repository.save(product);
+		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 	}
 
 }
