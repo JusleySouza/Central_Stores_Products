@@ -2,6 +2,7 @@ package com.central.stores.products.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +35,7 @@ public class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(updatable = false, nullable = false )
-	private int id;
+	private UUID id;
 	@Column(nullable = false )
 	private String name;
 	@Column(nullable = false )

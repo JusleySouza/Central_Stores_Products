@@ -1,6 +1,7 @@
 package com.central.stores.products.model.dto;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +20,7 @@ public class ResponseProductDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private UUID id;
 	private String name;
 	private String batch;
 	private int amount;
